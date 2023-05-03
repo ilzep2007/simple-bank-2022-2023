@@ -8,8 +8,18 @@ class Customer:
         self.email = email
         self.datetime_created = datetime.datetime.now()
         self.accounts = []
+# ... citi esošie metodes ...
 
-    def status(self):
+    def calculate_percentages(self, account_number, years):
+        for account in self.accounts:
+            if account.number == account_number:
+                interest_rate = 0.005  # 0.5% annual interest rate
+                final_balance = account.balance * (1 + interest_rate) ** years
+                print(f"The final balance after {years} years for account {account_number} will be: {final_balance} {account.currency}")
+                break
+        else:
+            print(f"Account with number {account_number} not found.")
+   def status(self):
         print(f"Client: {self.name} {self.surname} ({self.id}) {self.datetime_created}")
 
     def add_account(self, number, currency, balance):
