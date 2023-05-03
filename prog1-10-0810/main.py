@@ -33,7 +33,12 @@ class Customer:
         print("-" * 100)
         print(f"😀 Transaction report for customer {self.name} {self.surname}")     
         for account in self.accounts:
-            account.print_transactions()
+            account.print_transactions() 
+    def calculate_percentages(self):
+        interest_rate = 0.5 / 100 # gada procentu likme
+        for account in self.accounts:
+            interest = account.balance * interest_rate
+            account.deposit(interest, "Noguldījuma procenti")
 
 # KOMANDAS UZDEVUMS 2
 # Izveido Account klases 2 metodes:
